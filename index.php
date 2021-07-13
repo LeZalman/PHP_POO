@@ -13,9 +13,10 @@ require('MyAnnotations.php');
 require('Personnage.class.php');
 
 
-$connexion = new Connexion('localhost', 'root', '', 'PHP_POO');
 
-$_SESSION['connexion'] = serialize($connexion);
+$connexion = PDOFactory::getMysqlConnexion();
+
+//$_SESSION['connexion'] = serialize($connexion);
 
 function html_table($data = array())
 {
@@ -28,4 +29,3 @@ function html_table($data = array())
 }
 
 //Conserver le code ci-dessus, il simplifie l'edition de code pour les exercices et TPs
-
