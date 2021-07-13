@@ -7,15 +7,25 @@ function chargerClasse($classe)
 
 spl_autoload_register('chargerClasse');
 require('traits.php');
+//Utilisation lib addendum
+require('addendum/annotations.php');
+require('MyAnnotations.php');
+require('Personnage.class.php');
+
 
 $connexion = new Connexion('localhost', 'root', '', 'PHP_POO');
 
 $_SESSION['connexion'] = serialize($connexion);
 
-$classeMagicien = new ReflectionClass('Magicien');
-$magicien = new Magicien(['nom' => 'vyk12', 'type' => 'magicien']);
+function html_table($data = array())
+{
+    $result = '';
+    foreach ($data as $key => $value) {
 
-foreach ($classeMagicien->getProperties() as $attribut) {
-    $attribut->setAccessible(true);
-    echo $attribut->getName(), ' => ', $attribut->getValue($magicien);
+        $result .= "<br />$key = $value";
+    }
+    return $result;
 }
+
+//Conserver le code ci-dessus, il simplifie l'edition de code pour les exercices et TPs
+

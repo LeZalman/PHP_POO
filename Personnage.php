@@ -1,4 +1,5 @@
 <?php
+
 abstract class Personnage
 {
     protected $atout;
